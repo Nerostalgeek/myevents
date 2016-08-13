@@ -1,0 +1,34 @@
+<div ng-repeat="event in vm.events" flex="100" layout="column" layout-wrap class="left">
+    <md-content class="md-padding" layout="column" layout-align="center start">
+        <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">{{ event.title }}</span>
+                  <md-datepicker ng-model="myDate" md-placeholder="{{ event.start_time }}" disabled></md-datepicker>
+                  <span class="md-subhead"></span>
+                </md-card-header-text>
+            </md-card-header>
+            <img ng-if="event.image !== null" ng-src="{{event.image.medium.url}}" class="md-card-image" alt="image caption">
+            <img ng-if="event.image == null" ng-src="assets/logo.png" class="md-card-image" alt="image caption">
+
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{event.city_name}}</span>
+                    <span class="md-subhead">{{event.region_name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <span>{{event.venue_name}}</span>
+            </md-card-content>
+            <md-card-actions layout="column" layout-align="start">
+                <md-button class="btn1">Prendre un billet</md-button>
+                <br>
+                <md-button class="btn1">Créer un groupe</md-button>
+            </md-card-actions>
+        </md-card>
+            </div>
+
+    </md-content>
+</div>
+

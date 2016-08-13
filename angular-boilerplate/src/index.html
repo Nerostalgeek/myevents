@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic">
+    <link href="./app.css" rel="stylesheet">
+    <link rel="icon" href="./assets/favicon.ico"/>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+<body layout="column" ng-cloak>
+
+<my-events-loader></my-events-loader>
+
+<md-toolbar>
+    toolbar
+</md-toolbar>
+<div flex layout="row">
+    <md-sidenav flex="15" md-is-locked-open="true" class="md-whiteframe-z1">
+        <md-content>
+            sidenav
+        </md-content>
+    </md-sidenav>
+    <div layout="column" flex>
+        <div class="box1 ui-view">
+            100%
+        </div>
+    </div>
+</div>
+
+<script src="http://api.eventful.com/js/api"></script>
+<script src="./app.js"></script>
+</body>
+</html>
