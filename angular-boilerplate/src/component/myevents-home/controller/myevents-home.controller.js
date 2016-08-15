@@ -2,8 +2,6 @@ import inject from 'ng-inject';
 
 @inject('$rootScope', '$scope', '$state', 'facebookService', 'geolocationService', 'eventsService') // tout ce qui se trouve dans inject se retrouve dans this;
 class MyEventsHome {
-  message = 'Hello World ! This is NetflixHome component !';
-
   constructor() {
     this.getGeolocation();
 

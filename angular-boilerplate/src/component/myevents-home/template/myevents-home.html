@@ -1,33 +1,49 @@
 <div ng-repeat="event in vm.events" flex="100" layout="column" layout-wrap class="left">
-    <md-content class="md-padding" layout="column" layout-align="center start">
-        <div flex-xs flex-gt-xs="100" layout="column">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{ event.title }}</span>
-                  <md-datepicker ng-model="myDate" md-placeholder="{{ event.start_time }}" disabled></md-datepicker>
-                  <span class="md-subhead"></span>
-                </md-card-header-text>
-            </md-card-header>
-            <img ng-if="event.image !== null" ng-src="{{event.image.medium.url}}" class="md-card-image" alt="image caption">
-            <img ng-if="event.image == null" ng-src="assets/logo.png" class="md-card-image" alt="image caption">
 
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{event.city_name}}</span>
-                    <span class="md-subhead">{{event.region_name}}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <span>{{event.venue_name}}</span>
-            </md-card-content>
-            <md-card-actions layout="column" layout-align="start">
-                <md-button class="btn1">Prendre un billet</md-button>
-                <br>
-                <md-button class="btn1">Créer un groupe</md-button>
-            </md-card-actions>
-        </md-card>
-            </div>
+    <md-content class="md-padding" layout="column" layout-align="center start">
+        <md-sidenav flex="100" md-is-locked-open="true" class="md-whiteframe-z1">
+            <md-content>
+                    <md-input-container>
+                        <label>Catégories</label>
+                        <md-select ng-model="category">
+                        <md-option ng-repeat="cat in vm.category">{{cat.name}}</md-option>
+                </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Localisation</label>
+                    <input ng-model="location">
+                </md-input-container>
+                <md-button ng-click="vm.displayFilteredEvents(cat.name, location)" class="btn1">Filtrer</md-button>
+            </md-content>
+        </md-sidenav>
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-title">{{ event.title }}</span>
+                        <md-datepicker ng-model="myDate" md-placeholder="{{ event.start_time }}" disabled></md-datepicker>
+                        <span class="md-subhead"></span>
+                    </md-card-header-text>
+                </md-card-header>
+                <img ng-if="event.image !== null" ng-src="{{event.image.medium.url}}" class="md-card-image" alt="image caption">
+                <img ng-if="event.image == null" ng-src="assets/logo.png" class="md-card-image" alt="image caption">
+
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{event.city_name}}</span>
+                        <span class="md-subhead">{{event.region_name}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <span>{{event.venue_name}}</span>
+                </md-card-content>
+                <md-card-actions layout="column" layout-align="start">
+                    <md-button class="btn1">Prendre un billet</md-button>
+                    <br>
+                    <md-button class="btn1">Créer un groupe</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
 
     </md-content>
 </div>
