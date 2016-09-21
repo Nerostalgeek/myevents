@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('facebook_id')->unique()->unsigned();
+            $table->bigInteger('facebook_id')->unique()->unsigned();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();

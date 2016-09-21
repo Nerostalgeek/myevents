@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'cors'], function(){
+Route::group(['prefix' => 'api', 'middleware' => 'cors'], function(){
     $this->resource('users', 'UserController', ['only' => ['store', 'show']]);
 
 });

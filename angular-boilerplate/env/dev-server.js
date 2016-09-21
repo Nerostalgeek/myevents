@@ -33,14 +33,9 @@ const serverOptions = {
 
 if (config.proxy) {
   serverOptions.proxy = {
-    '*': {
+    '/api': {
       target: config.proxy,
       changeOrigin: true,
-      bypass: (req, res, proxyOptions) => {
-        if (req.url.includes('__webpack_hmr')) {
-          return req.url;
-        }
-      },
     },
   };
 }
